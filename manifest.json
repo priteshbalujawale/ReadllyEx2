@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "A11y-V2!",
+  "version": "2.0",
+  "permissions": ["tabs", "scripting"],
+  "incognito": "spanning",
+  "host_permissions": ["<all_urls>"],
+
+  "content_scripts": [
+    {
+      "css": ["content.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["./content.js", "./logic.js", "./childExt.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_icon": "A11yReady!.png"
+  }
+}
